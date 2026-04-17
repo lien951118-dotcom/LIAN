@@ -1,69 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>連奕晴｜履歷</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#fff3e6,#ffe0cc);
+}
+
+/* 外框 */
+.container{
+    max-width:1100px;
+    margin:40px auto;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.12);
+}
+
+/* 頭部 */
+.header{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    padding:40px;
+    background:linear-gradient(90deg,#ff9966,#ff5e62);
+    color:white;
+}
+
+.avatar{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+}
+
+.name{
+    font-size:40px;
+    font-weight:800;
+}
+
+.info{
+    margin-top:8px;
+    font-size:14px;
+    line-height:1.8;
+}
+
+/* 內容 */
+.content{
+    padding:30px;
+}
+
+/* 區塊 */
+.card{
+    background:#fff7f0;
+    padding:20px;
+    border-radius:16px;
+    margin-bottom:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* 標題 */
+h2{
+    color:#ff5e62;
+    margin-bottom:10px;
+}
+
+/* 標籤 */
+.tag{
+    display:inline-block;
+    background:#ff5e62;
+    color:white;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    margin:4px;
+}
+
+/* 時間軸 */
+.timeline{
+    border-left:3px solid #ff5e62;
+    padding-left:15px;
+}
+
+.timeline div{
+    margin-bottom:10px;
+}
+
+/* 動畫 */
+.fade{
+    opacity:0;
+    transform:translateY(15px);
+    transition:0.6s;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* RWD */
+@media(max-width:768px){
+    .header{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
 <div class="container">
 
-    <!-- 左側欄 -->
-    <div class="sidebar">
-        <img src="images/profile.jpg" class="avatar">
-
-        <h1>連奕晴</h1>
-        <p>AI學系｜亞洲大學</p>
-        <p>🎂 11/18｜♏ 天蠍座</p>
-
-        <div class="tags">
-            <span>唱歌</span>
-            <span>吉他</span>
-            <span>AI</span>
-            <span>音樂</span>
-        </div>
-
-        <div class="contact">
-            <p>📧 Email：xxxx@gmail.com</p>
-            <p>📱 Phone：09xx-xxx-xxx</p>
+    <!-- HEADER -->
+    <div class="header">
+        <img class="avatar" src="https://picsum.photos/seed/lian/300/300" alt="大頭貼">
+        <div>
+            <div class="name">連奕晴</div>
+            <div class="info">
+                🎓 亞洲大學 AI學系 AI1B<br>
+                🎂 11/18｜♏ 天蠍座<br>
+                🎧 唱歌｜吉他｜音樂<br>
+                🧼 注重整潔｜喜歡乾淨環境
+            </div>
         </div>
     </div>
 
-    <!-- 右側主內容 -->
-    <div class="main">
+    <!-- CONTENT -->
+    <div class="content">
 
-        <!-- 自我介紹 -->
-        <section class="card">
-            <h2>自我介紹</h2>
-            <p>（這裡寫完整個人故事）</p>
-        </section>
+        <div class="card fade">
+            <h2>👤 自我介紹</h2>
+            <p>
+                嗨，我是連奕晴，目前就讀亞洲大學AI學系AI1B。
+                平常喜歡唱歌、彈吉他，也喜歡音樂帶來的放鬆感。
+                個性注重整潔與細節。
+            </p>
+        </div>
 
-        <!-- 技能 -->
-        <section class="card">
-            <h2>技能能力</h2>
-            <ul>
-                <li>Python 基礎</li>
-                <li>AI 概念理解</li>
-                <li>邏輯思考</li>
-            </ul>
-        </section>
+        <div class="card fade">
+            <h2>🎯 興趣</h2>
+            <span class="tag">唱歌</span>
+            <span class="tag">吉他</span>
+            <span class="tag">音樂</span>
+            <span class="tag">吃冰</span>
+        </div>
 
-        <!-- 興趣 -->
-        <section class="card">
-            <h2>興趣</h2>
-            <p>唱歌 / 彈吉他 / 吃冰 / 音樂</p>
-        </section>
+        <div class="card fade">
+            <h2>🐰 喜好</h2>
+            <p>最喜歡的動物：兔子</p>
+        </div>
 
-        <!-- 個性 -->
-        <section class="card">
-            <h2>個人特質</h2>
-            <p>潔癖、注重細節、喜歡乾淨環境</p>
-        </section>
+        <div class="card fade">
+            <h2>✨ 個人特質</h2>
+            <p>專注｜細心｜整潔｜情感細膩</p>
+        </div>
 
-        <!-- 作品區 -->
-        <section class="card">
-            <h2>作品 / 經歷</h2>
-
+        <div class="card fade">
+            <h2>📍 成長歷程</h2>
             <div class="timeline">
-                <div>📌 2024 - 學習 Python</div>
-                <div>📌 2025 - AI課程專案</div>
-                <div>📌 未來 - AI + 音樂創作</div>
+                <div>2024｜開始學程式</div>
+                <div>2025｜接觸 AI</div>
+                <div>未來｜AI × 音樂創作</div>
             </div>
-
-        </section>
+        </div>
 
     </div>
 
 </div>
+
+<script>
+const items=document.querySelectorAll('.fade');
+
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+        if(e.isIntersecting){
+            e.target.classList.add('show');
+        }
+    });
+},{threshold:0.2});
+
+items.forEach(i=>observer.observe(i));
+</script>
+
+</body>
+</html>
