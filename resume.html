@@ -3,171 +3,454 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>連奕晴｜個人作品集</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
+<title>連奕晴｜個人品牌演繹</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
+/* 基礎變數設定 - 質感珊瑚色調 */
 :root {
-    --primary: #ff5e62;
-    --secondary: #ff9966;
-    --bg: #f8f9fa;
-    --text: #333;
+    --primary-gradient: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    --secondary-gradient: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    --accent-color: #ff6b6b;
+    --text-main: #333333;
+    --text-sub: #666666;
+    --bg-light: #fdfbfb;
+    --card-bg: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    font-family: 'Noto Sans TC', sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
+    font-family: 'Poppins', 'Noto Sans TC', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* 為了讓頁面有滾動感，增加上下 margin */
+.main-wrapper {
+    padding: 50px 20px;
 }
 
 .container {
-    max-width: 900px;
-    margin: 40px auto;
-    background: #fff;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--card-bg);
     border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.07);
 }
 
-/* Hero Section */
+/* --- Hero 封面區 (升級版) --- */
 .hero {
     position: relative;
-    padding: 80px 50px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    padding: 100px 60px;
+    background-image: var(--primary-gradient);
     color: white;
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
+}
+
+/* 裝飾用背景圓圈 */
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    top: -100px;
+    right: -50px;
+}
+
+.avatar-container {
+    position: relative;
+    z-index: 1;
 }
 
 .avatar {
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    border: 6px solid rgba(255,255,255,0.3);
-    object-fit: cover;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    /* 這裡替換成你的真實照片檔名 */
+    /* src="my-photo.jpg" alt="連奕晴真實照片" */
+    object-fit: cover; 
+    border: 8px solid rgba(255,255,255,0.4);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
 }
 
-.name { font-size: 3rem; font-weight: 900; }
-.subtitle { font-size: 1.1rem; opacity: 0.9; margin-top: 10px; }
+.avatar:hover {
+    transform: scale(1.05) rotate(3deg);
+}
 
-/* Music Bar */
-.music-bar {
-    padding: 15px 40px;
+.hero-text {
+    z-index: 1;
+    flex: 1;
+}
+
+.name-ja {
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.name {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.subtitle-badges {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.badge {
+    background: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    backdrop-filter: blur(5px);
+}
+
+/* --- 音樂播放器 (極簡浮動版) --- */
+.music-player-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    z-index: 100;
+    display: flex;
     align-items: center;
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    gap: 10px;
+    border: 1px solid #eee;
+    backdrop-filter: blur(10px);
+}
+
+.player-status {
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 50%;
+}
+
+.player-status.playing {
+    background: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    animation: pulse 1.5s infinite;
 }
 
 .music-btn {
-    background: #333;
-    color: white;
+    background: none;
     border: none;
-    padding: 8px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.music-btn:hover { background: var(--primary); }
-
-/* Content Cards */
-.content { padding: 40px; }
-.card {
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 20px;
-    background: #fffcfc;
-    border: 1px solid #f0f0f0;
-    transition: 0.4s;
-}
-
-.card:hover { transform: translateY(-8px); border-color: var(--primary); }
-
-h2 { color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px; }
-
-.tag {
-    display: inline-block;
-    background: #ffe5e5;
-    color: var(--primary);
-    padding: 6px 15px;
-    border-radius: 10px;
-    margin-right: 8px;
+    color: var(--text-main);
+    font-family: inherit;
     font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* --- 內容區 (精心排版) --- */
+.content-wrapper {
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 左右分欄 */
+    gap: 40px;
+}
+
+/* 左側主欄 */
+.main-content {
+}
+
+/* 右側側邊欄 */
+.sidebar {
+}
+
+.card {
+    background: #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border-color: #ffe0e0;
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+h2 {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+/* 自我介紹內文優化 */
+.intro-text p {
+    margin-bottom: 15px;
+    color: var(--text-sub);
+    font-size: 1.05rem;
+}
+
+.highlight {
+    color: var(--accent-color);
     font-weight: 600;
 }
 
-.timeline { border-left: 3px solid #eee; padding-left: 20px; margin-left: 5px; }
-.timeline div { margin-bottom: 15px; position: relative; }
+/* 標籤樣式 (側邊欄用) */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 
-.fade { opacity: 0; transform: translateY(20px); transition: 0.8s; }
+.tag {
+    background: #fff5f5;
+    color: var(--accent-color);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.tag:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* 時間軸樣式 (左側主欄用) */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: #eee;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -34px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.time-meta {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.time-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+
+.time-desc {
+    color: var(--text-sub);
+    font-size: 0.95rem;
+}
+
+/* 頁尾 */
+.footer {
+    text-align: center;
+    padding: 30px;
+    color: #bbb;
+    font-size: 0.85rem;
+    border-top: 1px solid #eee;
+}
+
+/* --- 動畫與響應式設定 --- */
+.fade { opacity: 0; transform: translateY(20px); transition: 0.8s ease; }
 .show { opacity: 1; transform: translateY(0); }
 
-@media(max-width:768px) {
-    .hero { flex-direction: column; text-align: center; }
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+}
+
+@media(max-width:900px) {
+    .content-wrapper { grid-template-columns: 1fr; }
+    .hero { flex-direction: column; text-align: center; padding: 60px 30px; }
+    .name { font-size: 2.8rem; }
+    .subtitle-badges { justify-content: center; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="music-bar">
-    <div>🎵 靈感音樂</div>
-    <button class="music-btn" onclick="toggleMusic()">播放 / 暫停</button>
+<div class="music-player-fixed">
+    <div class="player-status" id="playerStatus"></div>
+    <button class="music-btn" onclick="toggleMusic()">🎵 BGM: ON/OFF</button>
 </div>
 
-<div class="container">
-    <div class="hero">
-        <img class="avatar" src="https://picsum.photos/seed/lian/300/300" alt="連奕晴">
-        <div class="hero-text">
-            <div class="name">連奕晴</div>
-            <div class="subtitle">
-                🎓 亞洲大學 AI學系 AI1B<br>
-                ✨ 專注於 AI 技術與音樂藝術的跨界探索
+<audio id="bgm" loop>
+    <source src="audio/music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="main-wrapper">
+    <div class="container">
+
+        <div class="hero">
+            <div class="avatar-container">
+                <img class="avatar" src="https://picsum.photos/id/64/400/400" alt="連奕晴個人照">
+            </div>
+            <div class="hero-text">
+                <div class="name-ja">Lian, Yi-Ching</div>
+                <div class="name">連奕晴</div>
+                <div class="subtitle-badges">
+                    <span class="badge">Aisa University</span>
+                    <span class="badge">AI Department</span>
+                    <span class="badge">Scorpio ♏</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="content">
-        <div class="card fade">
-            <h2>👤 關於我</h2>
-            <p>我是連奕晴。一名在 AI 與音樂創作之間尋找平衡的學生。不僅對程式邏輯充滿好奇，更對生活中的整潔與質感有著堅持。</p>
-        </div>
+        <div class="content-wrapper">
+            
+            <div class="main-content">
+                <div class="card fade intro-text">
+                    <h2>👤 關於我 / About Me</h2>
+                    <p>嗨，我是奕晴。目前就讀於亞洲大學 AI 學系（AI1B）。</p>
+                    <p>我是一個在冷靜的<highlight>程式邏輯</highlight>與感性的<highlight>音樂藝術</highlight>之間尋找平衡點的人。天蠍座的專注力讓我能深入鑽研技術，而對唱歌與吉他的熱愛則是我的靈感泉源。</p>
+                    <p>除了技術與藝術，我也非常注重生活環境的<highlight>整潔與秩序</highlight>。我相信一個乾淨、有條理的空間，能帶來更高效的思考與更澄澈的創作心境。我期待能將 AI 的無限可能，融入我熱愛的音樂創作中，演繹出獨一無二的個人品牌。</p>
+                </div>
 
-        <div class="card fade">
-            <h2>🎯 興趣領域</h2>
-            <span class="tag"># 唱歌</span>
-            <span class="tag"># 吉他創作</span>
-            <span class="tag"># AI 技術</span>
-            <span class="tag"># 品味冰品</span>
-        </div>
-
-        <div class="card fade">
-            <h2>📍 成長進度</h2>
-            <div class="timeline">
-                <div><strong>2024</strong> ｜ 程式設計邏輯啟蒙</div>
-                <div><strong>2025</strong> ｜ 踏入 AI 領域探索</div>
-                <div><strong>Future</strong> ｜ 結合 AI 輔助音樂創作</div>
+                <div class="card fade">
+                    <h2>📍 品牌演進 / Evolution</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="time-meta">2024</div>
+                            <div class="time-title">啟程：邏輯思維的建立</div>
+                            <div class="time-desc">正式接觸程式設計，從零開始建構演算法邏輯，探索 0 與 1 的世界。</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="time-meta">2025</div>
+                            <div class="time-title">跨界：AI 應用的初探</div>
+                            <div class="time-desc">深入 AI 學系，學習機器學習與資料分析基礎，尋找技術與人性的交集。</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="time-meta">Future</div>
+                            <div class="time-title">融合：AI x 音樂創作</div>
+                            <div class="time-desc">目標將 generative AI 技術應用於歌詞生成、旋律輔助，甚至打造個人的 AI 音樂助理。</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <div class="sidebar">
+                <div class="card fade">
+                    <h2>🎯 核心興趣</h2>
+                    <div class="tag-container">
+                        <span class="tag">🎤 唱歌</span>
+                        <span class="tag">🎸 吉他彈唱</span>
+                        <span class="tag">🎶 音樂創作</span>
+                        <span class="tag">🤖 AI 技術探索</span>
+                        <span class="tag">🍦 品味冰品</span>
+                        <span class="tag">✨ 空間收納</span>
+                    </div>
+                </div>
+
+                <div class="card fade">
+                    <h2>✨ 個人特質</h2>
+                    <p>細心專注｜情感豐富｜追求質感｜喜歡乾淨</p>
+                </div>
+            </div>
+
         </div>
+
+        <div class="footer">
+            &copy; 2024 Lian, Yi-Ching. 個人品牌演繹 Portfolio.
+        </div>
+
     </div>
 </div>
 
 <script>
+// Scroll Animation
 const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
 }, {threshold: 0.1});
 document.querySelectorAll('.fade').forEach(i => observer.observe(i));
 
+// Music Player Logic
+const audio = document.getElementById('bgm');
+const statusCircle = document.getElementById('playerStatus');
+
 function toggleMusic(){
-    const audio = document.getElementById('bgm') || new Audio('audio/music.mp3');
-    audio.paused ? audio.play() : audio.pause();
+    if(audio.paused){
+        audio.play().then(() => {
+            statusCircle.classList.add('playing');
+        }).catch(error => {
+            console.log("Audio play failed, needs user interaction.");
+            alert("請先在頁面任意處點擊一下，再嘗試播放音樂喔！");
+        });
+    } else {
+        audio.pause();
+        statusCircle.classList.remove('playing');
+    }
 }
 </script>
+
 </body>
 </html>
