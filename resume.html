@@ -1,167 +1,69 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>個人履歷 - 連疫晴</title>
-<style>
-    body{
-        margin:0;
-        font-family: "Segoe UI", sans-serif;
-        background: linear-gradient(135deg,#fff3e6,#ffe0cc);
-        color:#333;
-    }
-
-    .container{
-        max-width:950px;
-        margin:40px auto;
-        background:white;
-        border-radius:20px;
-        overflow:hidden;
-        box-shadow:0 10px 30px rgba(0,0,0,0.12);
-    }
-
-    .header{
-        display:flex;
-        align-items:center;
-        gap:20px;
-        padding:30px;
-        background: linear-gradient(90deg,#ff9966,#ff5e62);
-        color:white;
-    }
-
-    .profile-pic{
-        width:140px;
-        height:140px;
-        border-radius:50%;
-        object-fit:cover;
-        border:4px solid white;
-    }
-
-    .name{
-        font-size:34px;
-        font-weight:bold;
-    }
-
-    .subtitle{
-        font-size:14px;
-        opacity:0.95;
-        margin-top:6px;
-        line-height:1.6;
-    }
-
-    .grid{
-        display:grid;
-        grid-template-columns: 1fr 1fr;
-        gap:20px;
-        padding:25px;
-    }
-
-    .card{
-        background:#fff7f0;
-        padding:18px;
-        border-radius:14px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    .card h2{
-        color:#ff5e62;
-        font-size:18px;
-        margin-bottom:10px;
-    }
-
-    .full{
-        grid-column: 1 / -1;
-    }
-
-    ul{
-        padding-left:18px;
-    }
-
-    .tag{
-        display:inline-block;
-        background:#ff5e62;
-        color:white;
-        padding:4px 10px;
-        border-radius:20px;
-        font-size:12px;
-        margin:3px;
-    }
-
-    .fade{
-        opacity:0;
-        transform: translateY(10px);
-        transition:0.6s;
-    }
-
-    .show{
-        opacity:1;
-        transform: translateY(0);
-    }
-</style>
-</head>
-<body>
-
 <div class="container">
 
-    <div class="header">
-        <img class="profile-pic" src="https://picsum.photos/seed/profile/300/300" alt="大頭貼">
-        <div>
-            <div class="name">連疫晴（AI1B）</div>
-            <div class="subtitle">
-                🎂 生日：11/18（天蠍座）<br>
-                📍 亞洲大學 AI學系<br>
-                🎧 喜歡唱歌｜彈吉他｜聽別人唱歌
-            </div>
+    <!-- 左側欄 -->
+    <div class="sidebar">
+        <img src="images/profile.jpg" class="avatar">
+
+        <h1>連奕晴</h1>
+        <p>AI學系｜亞洲大學</p>
+        <p>🎂 11/18｜♏ 天蠍座</p>
+
+        <div class="tags">
+            <span>唱歌</span>
+            <span>吉他</span>
+            <span>AI</span>
+            <span>音樂</span>
+        </div>
+
+        <div class="contact">
+            <p>📧 Email：xxxx@gmail.com</p>
+            <p>📱 Phone：09xx-xxx-xxx</p>
         </div>
     </div>
 
-    <div class="grid">
+    <!-- 右側主內容 -->
+    <div class="main">
 
-        <div class="card fade">
+        <!-- 自我介紹 -->
+        <section class="card">
             <h2>自我介紹</h2>
-            <p>
-                嗨大家好，我是連疫晴，目前就讀AI1B。平常喜歡唱歌、彈吉他，也很喜歡聽別人唱歌。
-                個性上比較注重整潔，有潔癖，特別喜歡洗手的感覺。
-            </p>
-        </div>
+            <p>（這裡寫完整個人故事）</p>
+        </section>
 
-        <div class="card fade">
+        <!-- 技能 -->
+        <section class="card">
+            <h2>技能能力</h2>
+            <ul>
+                <li>Python 基礎</li>
+                <li>AI 概念理解</li>
+                <li>邏輯思考</li>
+            </ul>
+        </section>
+
+        <!-- 興趣 -->
+        <section class="card">
             <h2>興趣</h2>
-            <span class="tag">唱歌</span>
-            <span class="tag">吉他</span>
-            <span class="tag">聽音樂</span>
-            <span class="tag">吃冰</span>
-        </div>
+            <p>唱歌 / 彈吉他 / 吃冰 / 音樂</p>
+        </section>
 
-        <div class="card fade">
-            <h2>喜好動物</h2>
-            <p>🐰 兔子（最喜歡）</p>
-        </div>
-
-        <div class="card fade">
+        <!-- 個性 -->
+        <section class="card">
             <h2>個人特質</h2>
-            <p>✨ 注重乾淨與整潔<br>🧼 喜歡洗手<br>🌙 天蠍座特質</p>
-        </div>
+            <p>潔癖、注重細節、喜歡乾淨環境</p>
+        </section>
 
-        <div class="card full fade">
-            <h2>補充</h2>
-            <p>
-                我喜歡用音樂放鬆自己，也希望未來能把AI和創作結合，做出有趣的作品。
-            </p>
-        </div>
+        <!-- 作品區 -->
+        <section class="card">
+            <h2>作品 / 經歷</h2>
+
+            <div class="timeline">
+                <div>📌 2024 - 學習 Python</div>
+                <div>📌 2025 - AI課程專案</div>
+                <div>📌 未來 - AI + 音樂創作</div>
+            </div>
+
+        </section>
 
     </div>
+
 </div>
-
-<script>
-const cards = document.querySelectorAll('.fade');
-cards.forEach((c, i)=>{
-    setTimeout(()=>{
-        c.classList.add('show');
-    }, i*150);
-});
-</script>
-
-</body>
-</html>
