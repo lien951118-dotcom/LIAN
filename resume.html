@@ -3,242 +3,171 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>連奕晴｜履歷作品集</title>
+<title>連奕晴｜個人作品集</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
-body{
-    margin:0;
-    font-family:"Segoe UI",sans-serif;
-    background:linear-gradient(135deg,#fff3e6,#ffe0cc);
+:root {
+    --primary: #ff5e62;
+    --secondary: #ff9966;
+    --bg: #f8f9fa;
+    --text: #333;
 }
 
-.container{
-    max-width:1150px;
-    margin:40px auto;
-    background:#fff;
-    border-radius:22px;
-    overflow:hidden;
-    box-shadow:0 18px 45px rgba(0,0,0,0.15);
+body {
+    margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
 }
 
-/* HERO 封面區 */
-.hero{
-    position:relative;
-    padding:60px 40px;
-    display:flex;
-    align-items:center;
-    gap:35px;
-    background:linear-gradient(90deg,#ff9966,#ff5e62);
-    color:white;
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
 }
 
-.cover-glow{
-    position:absolute;
-    inset:0;
-    background:radial-gradient(circle at 20% 20%,rgba(255,255,255,0.2),transparent 40%);
+/* Hero Section */
+.hero {
+    position: relative;
+    padding: 80px 50px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
-.avatar{
-    width:170px;
-    height:170px;
-    border-radius:50%;
-    object-fit:cover;
-    border:5px solid white;
-    box-shadow:0 12px 28px rgba(0,0,0,0.25);
-    z-index:1;
+.avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 6px solid rgba(255,255,255,0.3);
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.hero-text{
-    z-index:1;
+.name { font-size: 3rem; font-weight: 900; }
+.subtitle { font-size: 1.1rem; opacity: 0.9; margin-top: 10px; }
+
+/* Music Bar */
+.music-bar {
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-bottom: 1px solid #eee;
 }
 
-.name{
-    font-size:44px;
-    font-weight:900;
-    letter-spacing:2px;
+.music-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.subtitle{
-    margin-top:10px;
-    font-size:15px;
-    line-height:1.8;
-    opacity:0.95;
+.music-btn:hover { background: var(--primary); }
+
+/* Content Cards */
+.content { padding: 40px; }
+.card {
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    background: #fffcfc;
+    border: 1px solid #f0f0f0;
+    transition: 0.4s;
 }
 
-/* 音樂播放器 */
-.music-bar{
-    position:sticky;
-    top:0;
-    background:#fff;
-    padding:12px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid #eee;
-    z-index:10;
+.card:hover { transform: translateY(-8px); border-color: var(--primary); }
+
+h2 { color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px; }
+
+.tag {
+    display: inline-block;
+    background: #ffe5e5;
+    color: var(--primary);
+    padding: 6px 15px;
+    border-radius: 10px;
+    margin-right: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
-.music-btn{
-    background:#ff5e62;
-    color:white;
-    border:none;
-    padding:10px 14px;
-    border-radius:20px;
-    cursor:pointer;
-}
+.timeline { border-left: 3px solid #eee; padding-left: 20px; margin-left: 5px; }
+.timeline div { margin-bottom: 15px; position: relative; }
 
-.music-btn:hover{
-    background:#ff9966;
-}
+.fade { opacity: 0; transform: translateY(20px); transition: 0.8s; }
+.show { opacity: 1; transform: translateY(0); }
 
-.content{
-    padding:30px;
-}
-
-.card{
-    background:#fff7f0;
-    padding:22px;
-    border-radius:16px;
-    margin-bottom:18px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.06);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-h2{
-    color:#ff5e62;
-    margin-bottom:10px;
-}
-
-.tag{
-    display:inline-block;
-    background:#ff5e62;
-    color:white;
-    padding:5px 12px;
-    border-radius:20px;
-    margin:4px;
-    font-size:12px;
-}
-
-.timeline{
-    border-left:3px solid #ff5e62;
-    padding-left:15px;
-}
-
-.timeline div{
-    margin-bottom:10px;
-}
-
-.fade{
-    opacity:0;
-    transform:translateY(15px);
-    transition:0.7s;
-}
-
-.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-@media(max-width:768px){
-    .hero{
-        flex-direction:column;
-        text-align:center;
-    }
+@media(max-width:768px) {
+    .hero { flex-direction: column; text-align: center; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- 音樂 -->
 <div class="music-bar">
-    <div>🎵 背景音樂</div>
+    <div>🎵 靈感音樂</div>
     <button class="music-btn" onclick="toggleMusic()">播放 / 暫停</button>
 </div>
 
-<audio id="bgm" loop>
-    <source src="audio/music.mp3" type="audio/mpeg">
-</audio>
-
 <div class="container">
-
-    <!-- HERO 封面 -->
     <div class="hero">
-        <div class="cover-glow"></div>
-        <img class="avatar" src="https://picsum.photos/seed/lian/300/300" alt="大頭貼">
+        <img class="avatar" src="https://picsum.photos/seed/lian/300/300" alt="連奕晴">
         <div class="hero-text">
             <div class="name">連奕晴</div>
             <div class="subtitle">
                 🎓 亞洲大學 AI學系 AI1B<br>
-                🎂 11/18｜♏ 天蠍座<br>
-                🎧 唱歌｜吉他｜音樂<br>
-                🧼 注重整潔｜喜歡乾淨環境
+                ✨ 專注於 AI 技術與音樂藝術的跨界探索
             </div>
         </div>
     </div>
 
-    <!-- CONTENT -->
     <div class="content">
-
         <div class="card fade">
-            <h2>👤 自我介紹</h2>
-            <p>嗨，我是連奕晴，目前就讀AI1B。喜歡唱歌、吉他與音樂創作，也注重生活整潔。</p>
+            <h2>👤 關於我</h2>
+            <p>我是連奕晴。一名在 AI 與音樂創作之間尋找平衡的學生。不僅對程式邏輯充滿好奇，更對生活中的整潔與質感有著堅持。</p>
         </div>
 
         <div class="card fade">
-            <h2>🎯 興趣</h2>
-            <span class="tag">唱歌</span>
-            <span class="tag">吉他</span>
-            <span class="tag">音樂</span>
-            <span class="tag">吃冰</span>
+            <h2>🎯 興趣領域</h2>
+            <span class="tag"># 唱歌</span>
+            <span class="tag"># 吉他創作</span>
+            <span class="tag"># AI 技術</span>
+            <span class="tag"># 品味冰品</span>
         </div>
 
         <div class="card fade">
-            <h2>🐰 喜好</h2>
-            <p>最喜歡兔子與冰品</p>
-        </div>
-
-        <div class="card fade">
-            <h2>✨ 個人特質</h2>
-            <p>細心｜整潔｜專注｜情感豐富</p>
-        </div>
-
-        <div class="card fade">
-            <h2>📍 成長紀錄</h2>
+            <h2>📍 成長進度</h2>
             <div class="timeline">
-                <div>2024｜開始學程式</div>
-                <div>2025｜AI入門</div>
-                <div>未來｜AI × 音樂創作</div>
+                <div><strong>2024</strong> ｜ 程式設計邏輯啟蒙</div>
+                <div><strong>2025</strong> ｜ 踏入 AI 領域探索</div>
+                <div><strong>Future</strong> ｜ 結合 AI 輔助音樂創作</div>
             </div>
         </div>
-
     </div>
 </div>
 
 <script>
-const items=document.querySelectorAll('.fade');
-const observer=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-        if(e.isIntersecting){
-            e.target.classList.add('show');
-        }
-    });
-},{threshold:0.15});
-items.forEach(i=>observer.observe(i));
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+}, {threshold: 0.1});
+document.querySelectorAll('.fade').forEach(i => observer.observe(i));
 
 function toggleMusic(){
-    const audio=document.getElementById('bgm');
-    if(audio.paused){
-        audio.play();
-    }else{
-        audio.pause();
-    }
+    const audio = document.getElementById('bgm') || new Audio('audio/music.mp3');
+    audio.paused ? audio.play() : audio.pause();
 }
 </script>
-
 </body>
 </html>
