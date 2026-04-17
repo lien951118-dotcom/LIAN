@@ -1,185 +1,140 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>個人履歷 - 新版型</title>
-
+<title>履歷表 - 連奕晴</title>
 <style>
-body {
-    margin: 0;
-    font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
-    background: #f5f5f5;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+    body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #fff5e6, #ffe0cc);
+        color: #333;
+    }
 
-.container {
-    width: 900px;
-    height: 500px; /* 固定高度，模擬圖片比例 */
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    overflow: hidden;
-    display: flex;
-    position: relative;
-}
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
 
-/* 左側文字區塊 */
-.left-section {
-    width: 50%;
-    padding: 60px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
+    .header {
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        background: linear-gradient(90deg, #ff9966, #ff5e62);
+        color: white;
+    }
 
-.left-section h1 {
-    font-size: 64px;
-    font-weight: bold;
-    color: #333;
-    margin: 0;
-}
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid white;
+        margin-right: 25px;
+    }
 
-.left-section .name-zh {
-    letter-spacing: 10px;
-}
+    .name {
+        font-size: 32px;
+        font-weight: bold;
+    }
 
-.left-section hr {
-    width: 200px;
-    border: 0;
-    border-top: 4px solid #333;
-    margin: 20px 0;
-}
+    .info {
+        margin-top: 8px;
+        font-size: 14px;
+    }
 
-.left-section .title {
-    font-size: 18px;
-    color: #333;
-    margin: 0;
-}
+    .section {
+        padding: 25px 30px;
+        border-bottom: 1px solid #eee;
+    }
 
-/* 中央圓形頭像 */
-.profile-img-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 15px solid white; /* 白色邊框 */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    z-index: 10;
-}
+    .section h2 {
+        color: #ff5e62;
+        margin-bottom: 15px;
+    }
 
-.profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+    .card {
+        background: #fff7f0;
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+    }
 
-/* 右側色塊區塊 */
-.right-section {
-    width: 50%;
-    background-color: #C1D9C1; /* 淺綠色背景 */
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 60px;
-    box-sizing: border-box;
-}
+    .btn {
+        display: inline-block;
+        padding: 10px 18px;
+        background: #ff5e62;
+        color: white;
+        border-radius: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-.right-section .name-en {
-    font-size: 64px;
-    font-weight: bold;
-    color: white;
-    margin: 0;
-}
+    .btn:hover {
+        background: #ff9966;
+    }
 
-/* 原始功能的樣式，暫時隱藏 */
-.section, .skill-bar, .button {
-    display: none;
-}
+    .hidden {
+        display: none;
+    }
 </style>
 </head>
-
 <body>
-    <audio id="bgMusic" loop>
-    <source src="audio/music.mp3" type="audio/mpeg">
-    您的瀏覽器不支援音訊元素。
-</audio>
 
-<script>
-    window.onload = () => {
-        // 執行原本的技能條動畫
-        document.querySelectorAll(".skill-fill").forEach(bar => {
-            let value = bar.getAttribute("data-skill");
-            if (value) {
-                bar.style.width = value + "%";
-            }
-        });
-
-        // 嘗試自動播放音樂
-        const audio = document.getElementById('bgMusic');
-        
-        // 嘗試播放
-        const playPromise = audio.play();
-
-        if (playPromise !== undefined) {
-            playPromise.then(_ => {
-                // 自動播放成功
-                console.log("播放成功");
-            }).catch(error => {
-                // 自動播放被瀏覽器阻擋，等待使用者點擊頁面後播放
-                console.log("自動播放被阻擋，等待互動");
-                document.body.addEventListener('click', () => {
-                    audio.play();
-                }, { once: true }); // 只觸發一次
-            });
-        }
-    }
-</script>
 <div class="container">
 
-    <div class="left-section">
-        <h1 class="name-zh">威廉</h1>
-        <hr>
-        <p class="title">專案經理</p>
+    <div class="header">
+        <img src="images/profile.jpg" alt="個人照片" class="profile-pic" id="profileImg">
+        <div>
+            <div class="name">連奕晴</div>
+            <div class="info">亞洲大學 AI學系</div>
+            <div class="info">學號：114022071</div>
+        </div>
     </div>
 
-    <div class="profile-img-container">
-        <img src="https://via.placeholder.com/300x300.png?text=Profile+Photo" class="profile-img" alt="頭像">
+    <div class="section">
+        <h2>個人簡介</h2>
+        <div class="card">
+            對人工智慧與科技應用充滿熱情，具備邏輯思維與問題解決能力。
+            持續學習新技術，並致力於將AI應用於實際生活場景。
+        </div>
     </div>
 
-    <div class="right-section">
-        <h1 class="name-en">威廉</h1>
+    <div class="section">
+        <h2>學歷</h2>
+        <div class="card">
+            亞洲大學 AI學系
+        </div>
     </div>
 
+    <div class="section">
+        <h2>技能</h2>
+        <div class="card">Python / 基礎程式設計</div>
+        <div class="card">人工智慧基礎概念</div>
+        <div class="card">問題分析與邏輯思考</div>
     </div>
+
+    <div class="section">
+        <h2>互動功能</h2>
+        <button class="btn" onclick="toggleExtra()">顯示更多資訊</button>
+        <div id="extra" class="hidden">
+            <div class="card">興趣：健身、科技研究、競技運動</div>
+            <div class="card">目標：成為AI應用領域的專業人才</div>
+        </div>
+    </div>
+
+</div>
 
 <script>
-// 技能條動畫
-window.onload = () => {
-    document.querySelectorAll(".skill-fill").forEach(bar => {
-        let value = bar.getAttribute("data-skill");
-        if (value) {
-            bar.style.width = value + "%";
-        }
-    });
-}
-
-// 小互動：改名字
-function changeName() {
-    let newName = prompt("輸入你的名字：");
-    if (newName) {
-        document.getElementById("name").innerText = newName;
-    }
+function toggleExtra() {
+    const extra = document.getElementById('extra');
+    extra.classList.toggle('hidden');
 }
 </script>
 
